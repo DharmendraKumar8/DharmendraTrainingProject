@@ -25,7 +25,29 @@ public class URLMapping {
 	public static final String GET_ACTIVITIES = ACCOUNTS_API_V1 + "/activities";
 	public static final String DELETE_ACTIVITY = ACCOUNTS_API_V1 + "/delete_activity/{id}";
 	public static final String UPDATE_ACTIVITY = ACCOUNTS_API_V1 + "/update_activity";
-
+	
+	//User
+	public static final String ADD_USER = ACCOUNTS_API_V1 + "/add_user";
+	public static final String GET_ALL = ACCOUNTS_API_V1 + "/get_all";
+	public static final String DELETE_USER = ACCOUNTS_API_V1 + "/delete_user/{id}";
+	public static final String UPDATE_USER = ACCOUNTS_API_V1 + "/update_user";
+	public static final String FETCH_USER = ACCOUNTS_API_V1 + "/user/{id}";
+	
+	
+	//Profile
+	public static final String ADD_PROFILE = ACCOUNTS_API_V1 + "/add_profile";
+	public static final String GET_ALL_PROFILE = ACCOUNTS_API_V1 + "/profiles";
+	public static final String DELETE_PROFILE = ACCOUNTS_API_V1 + "/delete_profile/{id}";
+	public static final String UPDATE_PROFILE = ACCOUNTS_API_V1 + "/update_profile";
+	public static final String FETCH_PROFILE = ACCOUNTS_API_V1 + "/profile/{id}";
+	
+	//Book
+	public static final String ADD_BOOK = ACCOUNTS_API_V1 + "/add_book";
+	public static final String UPDATE_BOOK = ACCOUNTS_API_V1 + "/update_book";
+	
+	//Category
+	public static final String ADD_CATEGORY = ACCOUNTS_API_V1 + "/add_category";
+	public static final String UPDATE_CATEGORY = ACCOUNTS_API_V1 + "/update_category";
 	private URLMapping() {
 	}
 

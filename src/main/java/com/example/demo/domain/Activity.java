@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -20,6 +19,8 @@ public class Activity {
 
 	private boolean isActive;
 	private String handlerMethodName;
+
+	
 
 	public Activity() {
 	}
