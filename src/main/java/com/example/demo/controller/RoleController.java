@@ -23,8 +23,11 @@ import com.example.demo.service.RoleService;
 import com.example.demo.util.Activity;
 import com.example.demo.util.ResponseHandler;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @Controller
 @RestController
+@EnableSwagger2
 public class RoleController {
 
 	

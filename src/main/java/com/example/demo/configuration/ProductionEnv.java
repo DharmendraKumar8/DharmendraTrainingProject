@@ -2,26 +2,29 @@ package com.example.demo.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public class DevelopmentEnv implements EnvConfiguration {
+public class ProductionEnv implements EnvConfiguration {
 
-	@Value("${spring.datasource.url}")
+	@Value("${spring.datasource.url.pro}")
 	private String mySqlDBUrl;
 
-	@Value("${spring.datasource.username}")
+	@Value("${spring.datasource.user.pro}")
 	private String mySqlDBUser;
 
-	@Value("${spring.datasource.password}")
+	@Value("${spring.datasource.password.pro}")
 	private String mySqlDBPassword;
 
 	@Value("${spring.datasource.db.driver}")
 	private String mySqlDBDriver;
 
-	@Value("${scaffold.server.app.url.dev}")
+	@Value("${scaffold.server.app.url.stage}")//changed
 	private String appUrl;
+
+	@Value("${accounts.package.controller}")
+	private String[] controllerPackages;
 
 	@Override
 	public String getEnvironment() {
-		return "Dev Environment";
+		return "Pro Environment";
 	}
 
 	@Override
@@ -51,8 +54,7 @@ public class DevelopmentEnv implements EnvConfiguration {
 
 	@Override
 	public String[] getControllerPackages() {
-
-		return new String[] {};
+		return controllerPackages;
 	}
 
 }

@@ -20,6 +20,8 @@ import com.example.demo.mapping.URLMapping;
 import com.example.demo.service.ActivityService;
 import com.example.demo.util.ResponseHandler;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+@EnableSwagger2
 @RestController
 public class ActivityController {
 

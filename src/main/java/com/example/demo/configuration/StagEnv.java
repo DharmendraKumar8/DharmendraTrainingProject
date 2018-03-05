@@ -2,26 +2,28 @@ package com.example.demo.configuration;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public class DevelopmentEnv implements EnvConfiguration {
-
-	@Value("${spring.datasource.url}")
+public class StagEnv implements EnvConfiguration {
+	@Value("${spring.datasource.url.stage}")
 	private String mySqlDBUrl;
 
-	@Value("${spring.datasource.username}")
+	@Value("${spring.datasource.user.stage}")
 	private String mySqlDBUser;
 
-	@Value("${spring.datasource.password}")
+	@Value("${spring.datasource.password.stage}")
 	private String mySqlDBPassword;
 
 	@Value("${spring.datasource.db.driver}")
 	private String mySqlDBDriver;
 
-	@Value("${scaffold.server.app.url.dev}")
+	@Value("${scaffold.server.app.url.stage}")
 	private String appUrl;
+
+	@Value("${accounts.package.controller}")
+	private String[] controllerPackages;
 
 	@Override
 	public String getEnvironment() {
-		return "Dev Environment";
+		return "Stage Environment";
 	}
 
 	@Override
@@ -51,8 +53,7 @@ public class DevelopmentEnv implements EnvConfiguration {
 
 	@Override
 	public String[] getControllerPackages() {
-
-		return new String[] {};
+		return controllerPackages;
 	}
 
 }

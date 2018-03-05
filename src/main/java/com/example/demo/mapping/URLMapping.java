@@ -44,6 +44,9 @@ public class URLMapping {
 	//Book
 	public static final String ADD_BOOK = ACCOUNTS_API_V1 + "/add_book";
 	public static final String UPDATE_BOOK = ACCOUNTS_API_V1 + "/update_book";
+	public static final String ALL_BOOKS = ACCOUNTS_API_V1 + "/all_books";
+	public static final String DELETE_BOOK = ACCOUNTS_API_V1 + "/delete_book/{id}";
+	public static final String FETCH_BOOK = ACCOUNTS_API_V1 + "/book/{id}";
 	
 	//Category
 	public static final String ADD_CATEGORY = ACCOUNTS_API_V1 + "/add_category";

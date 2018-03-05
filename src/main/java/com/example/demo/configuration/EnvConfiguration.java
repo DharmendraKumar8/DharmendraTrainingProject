@@ -13,4 +13,6 @@ public interface EnvConfiguration {
 
 	String[] getControllerPackages();
 
+	String getAppUrl();
+
 }

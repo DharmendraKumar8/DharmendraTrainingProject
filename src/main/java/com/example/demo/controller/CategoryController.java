@@ -14,7 +14,10 @@ import com.example.demo.domain.BookCategory;
 import com.example.demo.mapping.URLMapping;
 import com.example.demo.service.CategoryService;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @RestController
+@EnableSwagger2
 public class CategoryController {
 
 	private static Logger logger = LoggerFactory.getLogger(RoleController.class);

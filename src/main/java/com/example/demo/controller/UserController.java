@@ -14,10 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.domain.User;
+import com.example.demo.exception.UserNotFoundException;
 import com.example.demo.mapping.URLMapping;
 import com.example.demo.service.UserService;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @RestController
+@EnableSwagger2
 public class UserController {
 	private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
@@ -40,13 +44,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = URLMapping.DELETE_USER, method = RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
+	public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id){
 
 		User user = userService.getById(id);
 
 		if (user == null) {
-			logger.debug("user with given id does not exists");
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			logger.info("user with given id does not exists");
+			throw new UserNotFoundException("user  zxcfgggggwtw eg agg  with  "+id+"  does'nt exist");
 		} else {
 			userService.delete(id);
 			String str = "User with id " + id + " deleted";
@@ -60,9 +64,10 @@ public class UserController {
 
 		User existingUser = userService.getById(user.getUser_id());
 		if (existingUser == null) {
-			String str = "Employee with id " + user.getUser_id() + " does not exists";
-			logger.info(str + "====================");
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			throw new UserNotFoundException("user with does'nt exist");
+			//String str = "Employee with id " + user.getUser_id() + " does not exists";
+			//logger.info(str + "====================");
+			//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		} else {
 			userService.save(user);
 			logger.info("++++++++++++++++++++++++++values inserted++++++++++++++++++++");
@@ -75,8 +80,9 @@ public class UserController {
 	public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
 		User user = userService.getById(id);
 		if (user == null) {
-			logger.debug("User with given id does not exists");
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			logger.info("User with given id "+id+" does not exists");
+			throw new UserNotFoundException("user with"+id+"does'nt exist");
+			//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		logger.debug("Found User:");
 		return new ResponseEntity<>(user, HttpStatus.OK);
