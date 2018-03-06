@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.example.demo.annotations.ContactNumberConstraint;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -17,7 +18,7 @@ public class UserProfile {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
+	@ContactNumberConstraint
 	private String phoneNumber;
 
 	private String gender;
@@ -25,13 +26,12 @@ public class UserProfile {
 	private String address;
 
 	@OneToOne(fetch = FetchType.LAZY)
-	
+
 	@JoinColumn(name = "user_id", nullable = false)
-	@JsonIgnore
-	public User user;
+		public User user;
 
 	public UserProfile() {
-		
+
 	}
 
 	public Long getId() {
