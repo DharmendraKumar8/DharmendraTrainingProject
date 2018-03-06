@@ -8,6 +8,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.example.demo.annotations.ValidEmail;
+import com.example.demo.annotations.ValidPassword;
+
 import javax.persistence.GenerationType;
 
 @Entity
@@ -28,6 +30,7 @@ public class User {
 	private String Name;
 	@ValidEmail
 	private String email;
+	@ValidPassword
 	private String password;
 
 	@OneToOne(mappedBy = "user")
