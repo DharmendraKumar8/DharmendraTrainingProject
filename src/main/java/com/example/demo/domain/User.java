@@ -7,8 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import com.example.demo.annotations.ValidEmail;
 import javax.persistence.GenerationType;
 
 @Entity
@@ -27,6 +26,7 @@ public class User {
 	}
 
 	private String Name;
+	@ValidEmail
 	private String email;
 	private String password;
 

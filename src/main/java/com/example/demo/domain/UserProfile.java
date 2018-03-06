@@ -10,9 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 @Entity
 public class UserProfile {
@@ -29,6 +27,7 @@ public class UserProfile {
 	@OneToOne(fetch = FetchType.LAZY)
 	
 	@JoinColumn(name = "user_id", nullable = false)
+	@JsonIgnore
 	public User user;
 
 	public UserProfile() {
