@@ -1,57 +1,66 @@
 package com.example.demo.domain;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
-
 import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-
-import com.example.demo.annotations.ValidEmail;
-import com.example.demo.annotations.ValidPassword;
-
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "user")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long user_id;
-
-	public void setUser_id(Long user_id) {
-		this.user_id = user_id;
-	}
-
-	public Long getUser_id() {
-		return user_id;
-	}
-
-	private String Name;
-	@ValidEmail
-	private String email;
-	@ValidPassword
+	@Column(nullable = false)
+	private Long id;
+	private String firstName;
+	private String lastName;
 	private String password;
+	private int roleId;
+	private String email;
+	private String phoneNumber;
+	private Date dob;
+	private Date doj;
+	private Boolean isActive = false;
+	private String gender;
+	private String profilePic;
+	private int exchangeId;
 
-	@OneToOne(mappedBy = "user")
-		public UserProfile userProfile;
-
-	public User() {
+	public String getPassword() {
+		return password;
 	}
 
-	public User(String name, String email, String password) {
-		super();
-		Name = name;
-		this.email = email;
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getName() {
-		return Name;
+	public Long getId() {
+		return id;
 	}
 
-	public void setName(String name) {
-		Name = name;
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
 	}
 
 	public String getEmail() {
@@ -62,12 +71,65 @@ public class User {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public Date getDoj() {
+		return doj;
+	}
+
+	public void setDoj(Date doj) {
+		this.doj = doj;
+	}
+
+	
+
+	public Boolean getIsActive() {
+		return isActive;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setIsActive(Boolean isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(String profilePic) {
+		this.profilePic = profilePic;
+	}
+
+	public int getExchangeId() {
+		return exchangeId;
+	}
+
+	public void setExchangeId(int exchangeId) {
+		this.exchangeId = exchangeId;
+	}
 }

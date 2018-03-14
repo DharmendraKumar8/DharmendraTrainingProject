@@ -44,13 +44,13 @@ public class UserController {
 	}
 
 	@RequestMapping(value = URLMapping.DELETE_USER, method = RequestMethod.DELETE)
-	public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id){
+	public ResponseEntity<Void> deleteUser(@PathVariable("id") Long id) {
 
 		User user = userService.getById(id);
 
 		if (user == null) {
 			logger.info("user with given id does not exists");
-			throw new UserNotFoundException("user  zxcfgggggwtw eg agg  with  "+id+"  does'nt exist");
+			throw new UserNotFoundException("user  zxcfgggggwtw eg agg  with  " + id + "  does'nt exist");
 		} else {
 			userService.delete(id);
 			String str = "User with id " + id + " deleted";
@@ -62,12 +62,10 @@ public class UserController {
 	@RequestMapping(value = URLMapping.UPDATE_USER, method = RequestMethod.POST)
 	public ResponseEntity<Void> updateUser(@RequestBody User user) {
 
-		User existingUser = userService.getById(user.getUser_id());
+		User existingUser = userService.getById(user.getId());
 		if (existingUser == null) {
 			throw new UserNotFoundException("user with does'nt exist");
-			//String str = "Employee with id " + user.getUser_id() + " does not exists";
-			//logger.info(str + "====================");
-			//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
 		} else {
 			userService.save(user);
 			logger.info("++++++++++++++++++++++++++values inserted++++++++++++++++++++");
@@ -80,9 +78,9 @@ public class UserController {
 	public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
 		User user = userService.getById(id);
 		if (user == null) {
-			logger.info("User with given id "+id+" does not exists");
-			throw new UserNotFoundException("user with"+id+"does'nt exist");
-			//return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			logger.info("User with given id " + id + " does not exists");
+			throw new UserNotFoundException("user with" + id + "does'nt exist");
+			// return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 		logger.debug("Found User:");
 		return new ResponseEntity<>(user, HttpStatus.OK);
