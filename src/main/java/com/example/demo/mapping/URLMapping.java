@@ -6,6 +6,7 @@ public class URLMapping {
 
 	public static final String REGISTER = ACCOUNTS_API_V1 + "/register";
 	public static final String VERIFICATION = ACCOUNTS_API_V1+"/verification";
+	public static final String LOGIN = ACCOUNTS_API_V1+"/login";
 
 	// Roles
 	public static final String ADD_ROLE = ACCOUNTS_API_V1 + "/add_role";
